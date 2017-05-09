@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PROGRAMAR (EN R) TE DA ALAS</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Antonio Sánchez Chinchón" />
+    <link href="libs/remark-css-0.0.1/example.css" rel="stylesheet" />
+    <link href="libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="libs/htmlwidgets-0.8/htmlwidgets.js"></script>
+    <script src="libs/jquery-1.12.4/jquery.min.js"></script>
+    <link href="libs/leaflet-0.7.7/leaflet.css" rel="stylesheet" />
+    <script src="libs/leaflet-0.7.7/leaflet.js"></script>
+    <link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+    <link href="libs/leaflet-label-0.2.2/leaflet.label.css" rel="stylesheet" />
+    <script src="libs/leaflet-label-0.2.2/leaflet.label.js"></script>
+    <script src="libs/Proj4Leaflet-0.7.2/proj4-compressed.js"></script>
+    <script src="libs/Proj4Leaflet-0.7.2/proj4leaflet.js"></script>
+    <script src="libs/leaflet-binding-1.1.0/leaflet.js"></script>
+    <script src="libs/leaflet-providers-1.0.27/leaflet-providers.js"></script>
+    <script src="libs/leaflet-providers-plugin-1.1.0/leaflet-providers-plugin.js"></script>
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# PROGRAMAR (EN R) TE DA ALAS
+## ESTALMAT Madrid
+### Antonio Sánchez Chinchón
+### Mayo 2017
+
+---
+
+
+
+class: inverse, center, middle
+
+#  Programar para disfutar de las matemáticas
+&lt;img src="./img/homer_maths.gif" height="250" /&gt;
+---
+class: center
+## La conjetura de Gilbreath
+![js](./img/gilbreath04.jpeg)
+
+---
+class: center
+## Esto es un armonógrafo
+&lt;img src="./img/harmonograph2.jpg" height="500" /&gt;
+---
+class: center
+## Sirve para dibujar
+&lt;img src="./img/Three-Pendulum-Rotary-Harmonograph.gif" height="450" /&gt;
+---
+class: center
+## Pero no hay por qué complicarse tanto la vida
+&lt;img src="./img/harm1.png" width="500" height="500" /&gt;
+---
+class: center
+## Pero no hay por qué complicarse tanto la vida
+&lt;img src="./img/harm2.png" width="500" height="500" /&gt;
+---
+class: center
+## Pero no hay por qué complicarse tanto la vida
+&lt;img src="./img/harm3.png" width="500" height="500" /&gt;
+---
+class: center
+## Pero no hay por qué complicarse tanto la vida
+&lt;img src="./img/harm4.png" width="500" height="500" /&gt;
+---
+class: center
+## Pero no hay por qué complicarse tanto la vida
+&lt;img src="./img/harm5.png" width="500" height="500" /&gt;
+---
+class: center
+## Pero no hay por qué complicarse tanto la vida
+&lt;img src="./img/harm6.png" width="500" height="500" /&gt;
+---
+class: center
+## La paradoja de Parrondo
+### ¿Jugarías a este juego?
+&lt;img src="./img/juego1.png" /&gt;
+---
+class: center
+### 100 partidas de 5.000 tiradas con 100&amp;euro; de salida
+&lt;img src="./img/parrondo1.png" /&gt;
+---
+class: center
+## La paradoja de Parrondo
+### ¿Y a este?
+&lt;img src="./img/juego2.png" /&gt;
+---
+class: center
+### 100 partidas de 5.000 tiradas con 100&amp;euro; de salida
+&lt;img src="./img/parrondo2.png" /&gt;
+---
+class: center, middle
+# ¿Y si combinaras al azar el primer juego y el segundo?
+---
+class: center
+### 100 partidas de 5.000 tiradas con 100&amp;euro; de salida
+&lt;img src="./img/parrondo3.png" /&gt;
+---
+class: inverse, center, middle
+
+#  Programar para trabajar
+&lt;img src="./img/homer_working.gif" height="250" /&gt;
+
+---
+class: center
+.left-column[
+## Ejemplos
+### - Coca Cola
+
+]
+.right-column[
+&lt;img src="./img/cocacola.jpg" height="150" /&gt;
+### Coca-Cola utiliza un algoritmo llamado [Black Book](https://www.bloomberg.com/news/articles/2013-01-31/coke-engineers-its-orange-juice-with-an-algorithm) para **asegurar que su zumo de naranja tiene un sabor consistente siempre**. 
+### El algoritmo incorpora **imágenes por satélite**, **rendimiento de los cultivos** y **preferencias de los consumidores** para determinar la mezcla ideal
+
+]
+
+---
+class: center
+.left-column[
+## Ejemplos
+### - Coca Cola
+### - Movistar
+]
+
+.right-column[
+&lt;img src="./img/movistar.png" height="150" /&gt;
+### Para Movistar es muy importante ayudar a sus clientes a **descubrir películas nuevas**: esto hace que valoren mejor la televisión 
+### La recomendación se realiza gracias a algoritmos llamados ** *filtros colaborativos* **, que analizan qué han visto otras personas parecidas a tí e involucran **potentes cálculos matriciales**
+]
+
+
+---
+class: center
+.left-column[
+## Ejemplos
+### - Coca Cola
+### - Movistar
+### - Shazam
+]
+.right-column[
+
+&lt;img src="./img/shazam.png" height="150" /&gt;
+### Shazam es conocida por su **capacidad de reconocer canciones a partir de una pequeña muestra** mediante algoritmos propios
+### Si encuentra un *match*, envía información del **artista**, **título** de la canción y del album, así como **links** a iTunes, YouTube, Spotify or Zune
+
+]
+
+---
+
+class: inverse, center, middle
+
+#  Vamos a programar un poquito
+&lt;img src="./img/homer.gif" height="250" /&gt;
+
+---
+## Vectores, bucles, gráficos básicos y data frames
+
+```r
+n=100
+fibo=c()
+fibo[1]=1
+fibo[2]=fibo[1]
+for (i in 3:n) fibo[i]=fibo[i-1]+fibo[i-2]
+plot(fibo, type="l")
+#cociente
+fiboc=c(1)
+for (i in 2:n) fiboc[i]=fibo[i]/fibo[i-1]
+plot(fiboc, type="l")
+#Crear un data frame
+fibonaccidf=data.frame(fibo=fibo, ficoc=fiboc)
+#Crear una variable nueva en el data frame
+fibonaccidf$first=substr(fibo,1,1)
+#Ver de que tipo es
+str(fibonaccidf)
+#Cambiar el tipo
+fibonaccidf$first=as.numeric(fibonaccidf$first)
+#Ver de que tipo es
+str(fibonaccidf)
+```
+---
+## El paquete dplyr, funciones, gráficos avanzados
+
+```r
+#Sacar conteos
+library(dplyr)
+fibonaccidf %&gt;% 
+  group_by(first) %&gt;% summarize(casos=n()) %&gt;% 
+  arrange(first)-&gt; fibonacci_stats
+#Funciones en R
+benford=function(x) {log10(1+1/x)}
+benford(1)
+#Pintar una funcion en R sin datos
+library(ggplot2)
+ggplot(data.frame(x=c(1:9)), aes(x)) + stat_function(fun=benford)
+#Valores de la funcion en 1:9
+benford(1:9)
+#suma de esos valores
+sum(benford(1:9))
+fibonacci_stats$expected=benford(fibonacci_stats$first)
+total_casos=sum(fibonacci_stats$casos)
+fibonacci_stats$observed=fibonacci_stats$casos/total_casos
+```
+---
+
+## Ahora tú
+
+###Calcula el Error Cuadrático Medio (ECM) del ajuste de Benford
+`$$ECM=\frac{1}{n}\sum_{i=1}^n(Y_i-\hat{Y}_i)^2$$`
+###¿Cuál es el ECM para n=200?
+
+---
+
+class: inverse, center, middle
+
+#  La Enciclopedia On Line de las Sucesiones de Números Enteros (OEIS)
+&lt;img src="./img/Sloane31_1k-640x416.jpg" height="300" /&gt;
+
+---
+.left-column[
+## La OEIS
+### - Qué es
+]
+.right-column[
+Es una **enorme base de datos** donde buscar sucesiones de números enteros. Sitio web: [www.oeis.org](www.oeis.org)
+]
+--
+.right-column[
+A ella recurren personas de todo el mundo para investigar en disciplinas como **teoría de números**, **teoría de juegos**, **rompecabezas**, **física**, **química**, **comunicaciones** ...
+]
+--
+.right-column[
+Se nutre de sucesiones que proponen **personas** ***normales y corrientes***, y cada año incorpora aproximadamente **10.000 nuevas entradas**
+]
+
+--
+.right-column[
+Actualmente contiene **mas de 285.000 sucesiones** de una variedad increíble. Dos ejemplos:
+&lt;style&gt;
+.listado li{
+  margin:7px 0;
+}
+&lt;/style&gt;
+
+.listado[
+* Número de maneras distintas de atarse un zapato con `n` pares de ojales
+* Por supuesto, **la sucesión de Fibonacci**
+]
+]
+---
+.left-column[
+## La OEIS
+### - Qué es
+### - Neil Sloane
+]
+.right-column[
+Es un **matemático estadounidense** (es el señor de la camiseta del Barsa)
+]
+--
+.right-column[
+Comenzó a recopilar sucesiones de enteros en 1963 y **creó la OEIS en 1996**
+]
+--
+.right-column[
+Considerado **uno de los matemáticos mas influyentes de la actualidad**
+]
+--
+.right-column[
+¡Un día **me escribió un correo electrónico a mí**!&lt;sup&gt;*&lt;/sup&gt;
+.footnote[
+&lt;sup&gt;*&lt;/sup&gt; Para decirme que creía una cosa que yo había publicado estaba mal
+]
+]
+---
+.left-column[
+## La OEIS
+### - Qué es
+### - Neil Sloane
+### - La favorita de Neil
+]
+.right-column[
+Es **esta**:
+&gt; 0, 0, 1, 0, 2, 0, 2, 2, 1, 6, 0, 5, 0, 2, 6, 5, 4, 0, 5, &amp;#46;&amp;#46;&amp;#46;
+
+Se crea con esta **regla**:
+&gt;empieza con 0, y si llegas a un nº que no has visto antes, **el siguiente término es 0** pero si ya ha aparecido previamente, cuentas el **nº de términos desde su última aparición**, y ese nº es el siguiente término
+
+Así pues:
+
+&lt;style&gt;
+.listado li{
+  margin:7px 0;
+}
+&lt;/style&gt;
+
+.listado[
+* El primer término es 0 por definición
+* Como no hemos visto ningún 0 antes, el segundo término es también 0
+* Como hemos visto un 0 antes, un paso atrás, el tercer término es 1
+* Como no hemos visto ningún 1 antes, el cuarto término es 0
+* Como hemos visto un 0 antes, dos pasos atrás, el quinto término es 2
+* ...
+]
+]
+---
+.left-column[
+## La OEIS
+### - Qué es
+### - Neil Sloane
+### - La favorita de Neil
+### - Proponer una sucesión
+]
+.right-column[
+**Piensa**, **piensa** y **piensa**
+]
+--
+.right-column[
+**Comprueba que tu sucesión no existe** ya introduciendo los primeros términos en la cajita de [búsqueda](http://oeis.org/) de la página principal de la OEIS
+  * Si existe **no te desesperes** y vuelve al paso anterior
+]
+--
+.right-column[
+Si crees que no existe, [regístrate](https://oeis.org/login?redirect=/edit/new) y rellena el formulario para proponer una nueva sucesión
+  La revisará algún matemático del mundo y **te contestará en poco tiempo**
+]
+--
+.right-column[
+Si te la aceptan, entre otras cosas * **podrás escuchar cómo suena** *
+]
+---
+.left-column[
+## La OEIS
+### - Qué es
+### - Neil Sloane
+### - La favorita de Neil
+### - Proponer una sucesión
+### - La mía
+]
+.right-column[
+Se llama [**A276643**](https://oeis.org/A276643) y es **esta**:
+&gt; 1, 4, 10, 20, 35, 56, 84, 120, 165, 220, 282, 348, &amp;#46;&amp;#46;&amp;#46;
+
+Se crea con esta **regla**:
+&gt;El n-ésimo término es la cantidad de **matrículas de coche distintas** de 4 dígitos que suman n, con n=0, 1, 2, ..., 36
+
+Es la segunda que propongo: **la primera me la rechazaron**
+
+La generé **con este código de R**:
+
+```r
+library(dplyr)
+data=expand.grid(0:9, 0:9, 0:9, 0:9)
+data %&gt;% mutate(n=Var1+Var2+Var3+Var4) %&gt;% 
+  group_by(n) %&gt;% 
+  summarise(value=n()) -&gt; suc
+```
+&lt;img src="./img/matricula.jpg" height="50"/&gt;
+]
+
+---
+
+class: inverse, center, middle
+
+#  Vamos a aprender algo mas complicado
+&lt;img src="./img/homer_studying.gif" height="200"/&gt;
+
+---
+class: center
+#  Pero, ¿por qué?
+&lt;img src="./img/homer_screaming.png" width="250" /&gt;
+&amp;nbsp; 
+--
+
+###Porque quiero que veais **que está a vuestro alcance**
+
+--
+###Porque con R se aprenden también otros lenguajes ** *de regalo* **
+
+--
+###Porque **los mapas molan**
+
+---
+class: center
+#La vista es lo primero
+###Los gráficos son **una parte importante de cualquier trabajo**
+###R es una herramienta extraordinaria para hacer gráficos, desde los mas **sencillos**, para explorar datos hasta los mas **complejos**, para presentar conclusiones de manera profesional
+###Los gráficos interactivos son estupendos para esto pero **siempre han estado al alcance de unos pocos**: los programadores de JavaScript
+###R hace muy fácil la creación de gráficos JavaScript **sin necesidad de saber JavaScript**
+###**Vamos a hacer unos mapas interactivos**
+
+---
+##¿Dónde estamos hoy?
+
+```r
+library(ggmap)
+geocode("Plaza de las Ciencias, Universidad Complutense, Madrid")
+```
+
+```
+##         lon      lat
+## 1 -3.725825 40.44931
+```
+
+```r
+library(leaflet)
+leaflet() %&gt;% addProviderTiles(providers$CartoDB.Positron) %&gt;%
+  addMarkers(lng=-3.725825, lat=40.44931, popup="ESTALMAT Madrid")
+```
+
+<div id="htmlwidget-1404c726989c7c46914e" style="width:432px;height:216px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1404c726989c7c46914e">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["CartoDB.Positron",null,null,{"errorTileUrl":"","noWrap":false,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false}]},{"method":"addMarkers","args":[40.44931,-3.725825,null,null,null,{"clickable":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"ESTALMAT Madrid",null,null,null,null,null,null]}],"limits":{"lat":[40.44931,40.44931],"lng":[-3.725825,-3.725825]}},"evals":[],"jsHooks":[]}</script>
+---
+## Ahora tú
+
+### Vamos a pintar cada un mapa **con los cinco lugares de la tierra** a los que nos gustaría viajar
+### Pasos:
+  + Haz un **vector** con los nombres de los cinco sitios
+  + Pásale la función **geocode**
+  + Haz un **data frame** con todo lo anterior
+    + Tiene que tener 3 columnas: nombre, longitud y latitud
+  + Píntalo con `leaflet` (aquí os ayudo yo)
+---
+## Mi programa
+
+```r
+sitios=c("Venecia, Italia",
+         "Petra, Jordania",
+         "Taj Mahal, India",
+         "Nueva York, EEUU",
+         "Peking, China")
+
+library(ggmap)
+geocode(sitios)-&gt;coordenadas
+data.frame(sitios, coordenadas) -&gt; datos
+
+library(leaflet)
+leaflet(datos) %&gt;%
+  addProviderTiles("NASAGIBS.ViirsEarthAtNight2012") %&gt;%
+  addMarkers(lng = ~lon, 
+             lat = ~lat, 
+             popup = ~sitios) -&gt; mi_mapa
+```
+.footnote[
+&lt;sup&gt;*&lt;/sup&gt; El gusanillo se escribe Alt+126]
+---
+## Mi mapa (NASA style)
+
+<div id="htmlwidget-82d36d9ce62bc387dab6" style="width:720px;height:432px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-82d36d9ce62bc387dab6">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["NASAGIBS.ViirsEarthAtNight2012",null,null,{"errorTileUrl":"","noWrap":false,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false}]},{"method":"addMarkers","args":[[45.44085,30.32845,27.17502,40.71278,39.9042],[12.31552,35.44436,78.04216,-74.00594,116.4074],null,null,null,{"clickable":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Venecia, Italia","Petra, Jordania","Tah Mahal, India","Nueva York, EEUU","Peking, China"],null,null,null,null,null,null]}],"limits":{"lat":[27.17502,45.44085],"lng":[-74.00594,116.4074]}},"evals":[],"jsHooks":[]}</script>
+---
+##Para terminar
+* Puedes elegir el mapa de fondo que mas te guste [aquí](http://leaflet-extras.github.io/leaflet-providers/preview/index.html)
+* Puedes guardar tu mapa en el ordenador así
+
+```r
+library(htmlwidgets)
+saveWidget(mi_mapa, "mi_mapa.html")
+```
+* Te recomiendo que le eches un vistazo a la página de [Leaflet for R](https://rstudio.github.io/leaflet/)
+
+---
+## Conclusiones
+
++ Programar te permite **ver las cosas con tus propios ojos**
+
+--
+
++ Además es una **habilidad cada vez mas cotizada por las empresas**
+
+--
+
++ Aprender R **es una buena inversión** (*solo* de tiempo)
+  * Leed [R for Beginners](https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf)
+
+--
+
++ Una forma *chula* de practicar R y de pasar un poquito a la historia de las matemáticas es **proponer una sucesión a la OEIS **
+
+--
+
++ **Contad conmigo para lo que queráis**
+  * **email:** `aschinchon@gmail.com`
+
+--
+
++ El código de todos los experimentos que hemos visto (y muchos mas) está en [www.fronkonstin.com](www.fronkonstin.com)
+
+---
+class: center, middle, inverse
+# ¡Misión cumplida!
+&lt;img src="./img/Homer_simpsonwoohooo.gif" width="250" /&gt;
+
+&lt;style&gt;
+.footnote{
+  width: 100%;
+  text-align: left;
+}
+.footnote a{
+  color: inherit;
+  text-decoration: inherit;
+}
+&lt;/style&gt;
+
+.footnote[
+Antonio Sánchez Chinchón    
+
+&lt;a href="https://github.com/aschinchon"&gt;&lt;i class="fa fa-github"&gt;&lt;/i&gt;&lt;/a&gt;
+&amp;nbsp;&amp;nbsp;
+&lt;a href="https://www.linkedin.com/in/aschinchon/"&gt;&lt;i class="fa fa-linkedin"&gt;&lt;/i&gt;&lt;/a&gt;
+&amp;nbsp;&amp;nbsp;
+&lt;a href="https://twitter.com/aschinchon"&gt;&lt;i class="fa fa-twitter"&gt;@aschinchon&lt;/i&gt;&lt;/a&gt;
+]
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "tomorrow-night-eighties",
+"highlightLanguage": "javascript, r, python, bash",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {window.dispatchEvent(new Event('resize'));});</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+});
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
